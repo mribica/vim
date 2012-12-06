@@ -1,9 +1,5 @@
-cd /home/muamer
-"pathogen
-call pathogen#infect()
+"pathogencall
 call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-
 
 set nocompatible
 syntax enable

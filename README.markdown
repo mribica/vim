@@ -1,7 +1,10 @@
-# Install
+## Install
 
-    git clone git://github/mribica/vim.git ~/.vim
+  git clone git://github/mribica/vim.git ~/.vim
+  git submodule init
+  git submodule update
 
-# Create symlink to .vimrc
+## Create symlink to .vimrc
 
-    ls -s ~/.vim/vimrc ~/.vimrc
+  touch ~/.vimrc
+  ln -s ~/.vim/vimrc ~/.vimrc
