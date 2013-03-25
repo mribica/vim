@@ -53,7 +53,7 @@ if has('gui_running')
    "set gfn=tahoma:h12
 endif
 
-set guifont=SourceCodePro\ 10
+set guifont=Source\ Code\ Pro\ Light:h13
 
 "turn off visual bell and flash
 set noerrorbells visualbell t_vb=
@@ -67,6 +67,7 @@ autocmd GUIEnter * set visualbell t_vb=
 "toogle NerdTree
 nmap <silent> <c-n> :NERDTreeToggle<CR>
 
+
 "Buffers - explore/next/previous: Alt-F12, F12, Shift-F12.
 nnoremap <silent> <C-F12> :BufExplorer<CR>
 nnoremap <silent> <F12> :bn<CR>
@@ -74,6 +75,10 @@ nnoremap <silent> <S-F12> :bp<CR>
 
 "Fuzzy finder ctrl + F11 **/
 nnoremap <C-F11> :FufFile **/<CR>
+
+"Tabs
+"open tab
+nmap <silent> <c-t> :tabedit<CR>
 
 "snipMate
 "define .ctp as html filetype
@@ -93,6 +98,9 @@ endif
 "Map ,v to open .vimrc in new tab
 let mapleader = ","
 nmap <leader>v :tabedit $MYVIMRC<CR>
+
+"toggle Tagbar
+nmap <leader>t :TagbarToggle<CR>
 
 let mapleader = ","
 nmap <leader>hl :nohlsearch<CR>
