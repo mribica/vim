@@ -122,6 +122,12 @@ map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 map <leader>b :CommandTFlush<cr>\|:CommandTBuffer<cr>
 
+" Ctrlp
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$',
+  \ 'file': '\.exe$\|\.so$\|\.dat$'
+  \ }
+
 
 "Command-T ignore swp and tmp files
 set wildignore=*.swp,*.bak,*.png,*.jpg,*.ico,*.gif
