@@ -139,6 +139,9 @@ cmap w!! w !sudo dd of=%
 set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
 
+" Gundo
+map <leader>g :GundoToggle<cr>
+
 " To save, ctrl-s.
 "nmap <c-s> :w<CR>
 "imap <c-s> <Esc>:w<CR>a
