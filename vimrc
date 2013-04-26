@@ -80,6 +80,9 @@ nnoremap <C-F11> :FufFile **/<CR>
 "open tab
 nmap <silent> <c-t> :tabedit<CR>
 
+" toggle between last open buffers
+nnoremap <leader><leader> <c-^>
+
 
  "Apply .vimrc changes on the fly
 " Source the vimrc file after saving it
