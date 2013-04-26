@@ -65,7 +65,7 @@ autocmd GUIEnter * set visualbell t_vb=
 "autocmd VimEnter * wincmd p
 
 "toogle NerdTree
-nmap <silent> <c-n> :NERDTreeToggle<CR>
+nmap <silent> <S-n> :NERDTreeToggle<CR>
 
 
 "Buffers - explore/next/previous: Alt-F12, F12, Shift-F12.
@@ -80,14 +80,6 @@ nnoremap <C-F11> :FufFile **/<CR>
 "open tab
 nmap <silent> <c-t> :tabedit<CR>
 
-"snipMate
-"define .ctp as html filetype
-"au BufNewFile,BufRead *.ctp set filetype=php.html
-
-"define erb as ruby filetype
-"au BufNewFile,BufRead *.html.erb set filetype=html.eruby.rails
-"au BufNewFile,BufRead *.js.erb set filetype=html.eruby.rails
-"au BufNewFile,BufRead *.coffee set filetype=coffee
 
  "Apply .vimrc changes on the fly
 " Source the vimrc file after saving it
@@ -127,10 +119,16 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$',
   \ 'file': '\.exe$\|\.so$\|\.dat$'
   \ }
+nnoremap <C-r> :CtrlPBufTag<cr>
 
 
-"Command-T ignore swp and tmp files
-set wildignore=*.swp,*.bak,*.png,*.jpg,*.ico,*.gif
+" ignore Rubinius, Sass cache files
+set wildignore+=tmp/**,*.rbc,.rbx,*.scssc,*.sassc
+" ignore Bundler standalone/vendor installs & gems
+set wildignore+=bundle/**,vendor/bundle/**,vendor/cache/**
+set wildignore+=node_modules/*
+"ignore swp and tmp files
+set wildignore+=*.swp,*.bak,*.png,*.jpg,*.ico,*.gif
 
 " Allow w!! to save as root
 "cmap w!! %!sudo tee > /dev/null %
