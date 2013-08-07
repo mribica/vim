@@ -1,6 +1,8 @@
 "pathogencall
 call pathogen#runtime_append_all_bundles()
 
+set noswapfile
+set nobackup
 set nocompatible
 syntax enable
 filetype plugin indent on
@@ -73,9 +75,6 @@ nnoremap <silent> <C-F12> :BufExplorer<CR>
 nnoremap <silent> <F12> :bn<CR>
 nnoremap <silent> <S-F12> :bp<CR>
 
-"Fuzzy finder ctrl + F11 **/
-nnoremap <C-F11> :FufFile **/<CR>
-
 "Tabs
 "open tab
 nmap <silent> <c-t> :tabedit<CR>
@@ -93,9 +92,6 @@ endif
 "Map ,v to open .vimrc in new tab
 let mapleader = ","
 nmap <leader>v :tabedit $MYVIMRC<CR>
-
-"toggle Tagbar
-nmap <leader>t :TagbarToggle<CR>
 
 let mapleader = ","
 nmap <leader>hl :nohlsearch<CR>
@@ -150,43 +146,3 @@ map <leader>g :GundoToggle<cr>
 "Windows like bahaviour, ctrl+v, ctrl+s, right click ...
 behave mswin
 source $VIMRUNTIME/mswin.vim
-
-" rspec mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-
-function! RunCurrentSpecFile()
-  if InSpecFile()
-    let l:command = "s " . @% . " -f documentation"
-    call SetLastSpecCommand(l:command)
-    call RunSpecs(l:command)
-  endif
-endfunction
-
-function! RunNearestSpec()
-  if InSpecFile()
-    let l:command = "s " . @% . " -l " . line(".") . " -f documentation"
-    call SetLastSpecCommand(l:command)
-    call RunSpecs(l:command)
-  endif
-endfunction
-
-function! RunLastSpec()
-  if exists("t:last_spec_command")
-    call RunSpecs(t:last_spec_command)
-  endif
-endfunction
-
-function! InSpecFile()
-  return match(expand("%"), "_spec.rb$") != -1
-endfunction
-
-function! SetLastSpecCommand(command)
-  let t:last_spec_command = a:command
-endfunction
-
-function! RunSpecs(command)
-  execute ":w\|!clear && echo " . a:command . " && echo && " . a:command
-endfunction
-
