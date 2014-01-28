@@ -67,7 +67,7 @@ autocmd GUIEnter * set visualbell t_vb=
 "autocmd VimEnter * wincmd p
 
 "toogle NerdTree
-nmap <silent> <S-n> :NERDTreeToggle<CR>
+nmap <silent> <S-n> :NERDTreeTabsToggle<CR>
 
 
 "Buffers - explore/next/previous: Alt-F12, F12, Shift-F12.
@@ -82,8 +82,7 @@ nmap <silent> <c-t> :tabedit<CR>
 " toggle between last open buffers
 nnoremap <leader><leader> <c-^>
 
-
- "Apply .vimrc changes on the fly
+"Apply .vimrc changes on the fly
 " Source the vimrc file after saving it
 if has("autocmd")
   autocmd! bufwritepost .vimrc source $MYVIMRC
